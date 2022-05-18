@@ -37,6 +37,12 @@ app.get("/all", (req, res) => {
 		res.send(values);
 	});
 });
+app.get("/deleteAll", (req, res) => {
+	conn.query("DELETE FROM Data", (err, values) => {
+		if (err) throw err;
+		res.send(values);
+	});
+});
 app.listen(port, () => {
 	console.log(`App listening on port ${port}`);
 });
